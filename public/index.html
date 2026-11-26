@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10121a">
+  <title>VoiceForge 50+ — Dialogue Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">V</span><span>VOICE<span class="brand-light">FORGE</span><small>50+ DIALOGUE STUDIO</small></span></a>
+      <div class="top-status"><span class="status-dot"></span><span id="serverStatus">Checking server…</span></div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> MULTI-VOICE AUDIO WORKSHOP</div>
+      <h1>Give every line<br><span>its own voice.</span></h1>
+      <p class="hero-copy">Build a cast of distinct male voices, give every dialogue line its own performance, then bring the entire scene together in one MP3.</p>
+      <div class="hero-pills"><span>50 voice slots</span><span>Expressive delivery</span><span>One combined MP3</span></div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><div class="step-label">01 / SCRIPT</div><h2>Your dialogue</h2></div>
+        <div class="line-count"><strong id="lineCount">0</strong><span>LINES</span></div>
+      </div>
+      <textarea id="scriptInput" spellcheck="false" aria-label="Dialogue script"></textarea>
+      <div class="script-footer"><span>One line = one unique voice</span><button class="text-button" id="restoreScript">Restore original dialogue</button></div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><div class="step-label">02 / CAST</div><h2>Choose your voices</h2><p class="section-subtitle">Distinct male English voices from the voice library.</p></div>
+        <div class="cast-count"><strong id="voiceCount">—</strong><span>AVAILABLE</span></div>
+      </div>
+      <div class="cast-toolbar">
+        <div class="search-wrap"><span>⌕</span><input id="voiceSearch" placeholder="Search voice, accent or age…" autocomplete="off"></div>
+        <button class="outline-button" id="refreshVoices">Refresh voices</button>
+      </div>
+      <div id="voiceGrid" class="voice-grid"><div class="loading-card">Loading voice library…</div></div>
+      <div class="cast-note" id="castNote">Each line will receive a different voice. Voice availability depends on your provider account.</div>
+    </section>
+
+    <section class="workspace generate-panel">
+      <div class="section-heading">
+        <div><div class="step-label">03 / EXPORT</div><h2>Build the scene</h2><p class="section-subtitle">All generated clips will be merged in script order.</p></div>
+        <div class="export-icon">♫</div>
+      </div>
+      <div class="cost-note"><span class="info-icon">i</span><span>Generating audio uses your voice provider's credits. The API key stays on the server and is never exposed in this page.</span></div>
+      <button class="generate-button" id="generateButton"><span>Generate one MP3</span><span class="button-arrow">↗</span></button>
+      <div class="progress-area hidden" id="progressArea">
+        <div class="progress-top"><span id="progressMessage">Preparing…</span><strong id="progressNumber">0%</strong></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div class="error-box hidden" id="errorBox"></div>
+      <div class="result-box hidden" id="resultBox">
+        <div class="result-symbol">✓</div>
+        <div class="result-copy"><strong>Your combined audio is ready</strong><span>All dialogue lines, in order, in one MP3 file.</span></div>
+        <a id="downloadButton" class="download-button" href="#" download>Download MP3 ↓</a>
+        <audio id="audioPlayer" controls></audio>
+      </div>
+    </section>
+
+    <footer><span>VOICEFORGE 50+</span><span>Made for character dialogue & creative audio</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
