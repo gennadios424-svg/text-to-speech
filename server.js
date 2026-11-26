@@ -119,6 +119,15 @@ function safeText(value) {
   return typeof value === "string" ? value.trim().slice(0, 500) : "";
 }
 
+function performanceText(line) {
+  const text = line.toLowerCase();
+  if (/thank|bless|saved|forget this/.test(text)) return "[relieved, emotional] " + line;
+  if (/follow me|this way|stay close|run!|leave them|take me|defend|not today/.test(text)) return "[urgent, shouting] " + line;
+  if (/my leg|dizzy|can't breathe|spinning/.test(text)) return "[strained, breathless] " + line;
+  if (/please|don't|no,|help|stay away|somebody|oh my god|surrender|family|begging|i don't/.test(text)) return "[panicked, pleading, raised voice] " + line;
+  return "[tense, emotional] " + line;
+}
+
 function voiceSettingsFor(line) {
   const text = line.toLowerCase();
   if (/thank|bless|saved|forget this/.test(text)) {
@@ -174,8 +183,8 @@ async function createClip(line, voice, filePath) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      text: line,
-      model_id: "eleven_multilingual_v2",
+      text: performanceText(line),
+      model_id: "eleven_v4",
       voice_settings: voiceSettingsFor(line)
     })
   });
