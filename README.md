@@ -1,6 +1,6 @@
 # VoiceForge 50+
 
-A browser-based dialogue voice studio. It loads distinct male English voices from the ElevenLabs shared voice library, assigns a different voice to each dialogue line, generates the clips, and joins them into one MP3.
+A browser-based dialogue voice studio. It loads distinct male English voices from the ElevenLabs shared voice library, assigns a different voice to each dialogue line, generates the clips, and joins them into one MP3. Expressive delivery tags are sent to Eleven v4 so lines can sound urgent, frightened, relieved, or commanding.
 
 ## Requirements
 - Node.js 20+
